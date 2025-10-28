@@ -1,7 +1,6 @@
 import "./normalize.css";
 import "./styles.css";
 
-const htmlBody = document.querySelector("body");
 const menuButton = document.querySelector("#dropdown-button");
 const menuList = document.querySelector("#dropdown-list");
 
@@ -10,7 +9,7 @@ menuButton.addEventListener("click", () => {
 });
 
 document.addEventListener("click", (e) => {
-    if ((e.target.id != "dropdown-button") || (e.target.parentElement.id != "dropdown-button")) {
+    if (!e.target.closest("#dropdown-button") && !e.target.closest("#dropdown-list")) {
         menuList.style.visibility = "hidden";
     }
 })
